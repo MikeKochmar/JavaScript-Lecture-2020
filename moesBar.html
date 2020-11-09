@@ -1,0 +1,47 @@
+<!doctype HTML>
+<html>
+<head>
+    <title>Moes Bar</title>
+    
+</head>
+<body>
+    <h1>Moes Bar</h1>
+
+    <form>
+        Enter your age! <input type="number" id="years_old" min=0 max=200>
+    </form>
+
+    <button onclick="serve_drink();">Order a drink</button>
+    
+    <h2 id="your_age"></h2>
+    <h2 id="your_drink"></h2>
+    <img src="" id="drink_image" >
+
+    <script>
+        var age;
+        function serve_drink() {
+            //alert("it works")
+            age = parseInt(document.getElementById("years_old").value);
+            //force the input to be an integer
+            document.getElementById("your_age").innerHTML = age + " years old";
+            //if statements make decisions
+            if(age >= 21){
+                document.getElementById("your_drink").innerHTML = "Have a beer!";
+                document.getElementById("drink_image").src = "images/duff.jpg";
+            } else if(age >= 12 && age < 21){
+                document.getElementById("your_drink").innerHTML = "Have a soda pop!";
+                document.getElementById("drink_image").src = "images/simpsonCola.jpg";
+            } else if(age >= 0 && age < 12){
+                document.getElementById("your_drink").innerHTML = "Have some malk!";
+                document.getElementById("drink_image").src = "images/malk.jpg";
+            } else {
+                //should throw errors
+                //should NOT have valid code
+                document.getElementById("your_drink").innerHTML = "Bad Age Entered, 0 - 200 please";
+                document.getElementById("drink_image").src = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
